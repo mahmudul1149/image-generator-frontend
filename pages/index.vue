@@ -3,7 +3,7 @@
   <div class=" max-w-5xl mx-auto grid grid-cols-2 gap-8 py-12">
     <div>
       <h1 class="text-white  text-5xl leading-[60px] font-bold mr-4">Free AI Image Generator: Turn text to images in seconds</h1>
-      <p class="text-white text-base mt-4">Convert words into an image in mere seconds with the Picsart AI Image Generator. Type a detailed description and watch your vision transform into vibrant, vibrant piece of art. 
+      <p class="text-white text-base mt-4">Transform text into captivating visuals instantly using our custom AI Image Generator. Input a detailed description, and witness your ideas come to life in stunning and dynamic images. 
 </p>
 <div class="flex items-center gap-3 mt-6">
   <input class=" text-base w-full py-2 px-2 rounded-lg" type="text" placeholder="Describe what you want to see" name="" id="" >
