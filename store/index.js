@@ -10,6 +10,7 @@ import {
 export const useMainStore = defineStore("main", {
   state: () => ({
     user: null,
+    input: ''
   }),
 
   actions: {
@@ -36,5 +37,8 @@ export const useMainStore = defineStore("main", {
     setUser(user) {
       this.user = user;
     },
+    setInputText(text) {
+      this.input = text
+    }
   },
 });
