@@ -12,7 +12,7 @@
             v-model="inputText"
           />
           <button
-          @click="generateImage"
+            @click="generateImage"
             class="flex items-center gap-2 rounded-lg py-2 px-6 font-medium text-base text-white"
             style="background: linear-gradient(to right, #7a4ced, #9266f0)"
           >
@@ -23,14 +23,40 @@
                 fill="white"
               ></path>
             </svg>
-            <span >Generate</span>
+            <span>Generate</span>
           </button>
         </div>
         <div></div>
       </div>
-
-      <div class="mt-2">
-        <h1 class="text-white leading-7 mb-2 text-lg">Choose a size</h1>
+      <div>
+        <h1 class="text-gray-300 text-lg my-1">Style</h1>
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center gap-1">
+            <button @click="selectStyle('vivid')">
+              <img
+              :class="{'active-border': selectedStyle === 'vivid'}"
+                class="w-14 h-14 rounded-lg border-2 border-gray-500"
+                src="../static/badman-viivid.png"
+                alt=""
+              />
+            </button>
+            <span class="text-[#a1b8ca] mt-0.5 text-center text-sm">Vivid</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <button @click="selectStyle('natural')">
+              <img
+              :class="{'active-border': selectedStyle === 'natural'}"
+                class="w-14 h-14 rounded-lg border-2 border-gray-500"
+                src="../static/badman-nat.png"
+                alt=""
+              />
+            </button>
+            <span class="text-[#a1b8ca] mt-0.5 text-center text-sm">Natural</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-1">
+        <h1 class="text-gray-300 leading-7 mb-1 text-lg">Choose a size</h1>
         <div class="grid grid-cols-3 max-w-[250px] gap-4">
           <button class="flex flex-col" @click="selectSize('small')">
             <div
@@ -64,6 +90,9 @@
           </button>
         </div>
       </div>
+      <div v-if="showImageError" class="flex items-center justify-center mt-6">
+         <p class="text-red-500 text-lg">{{ showImageError }}</p>
+      </div>
       <div v-if="loading" class="flex items-center justify-center mt-6">
         <img
           class="w-80 h-80"
@@ -72,7 +101,7 @@
         />
       </div>
       <div class="mt-10">
-        <img  class="rounded-lg " :src="displayImage" alt="" />
+        <img class="rounded-lg" :src="displayImage" alt="" />
       </div>
     </div>
   </div>
@@ -86,8 +115,14 @@ const inputText = ref("");
 const displayImage = ref(null);
 const loading = ref(false);
 const selectedSize = ref("small");
+const selectedStyle = ref("vivid");
+const showImageError = ref('')
 function selectSize(size) {
   selectedSize.value = size;
+}
+function selectStyle(style) {
+selectedStyle.value = style;
+console.log(selectedStyle.value);
 }
 async function generateImage() {
   loading.value = true;
@@ -95,12 +130,14 @@ async function generateImage() {
     const res = await $axios.post("/openai/generateimage", {
       prompt: inputText.value,
       size: selectedSize.value,
+      style: selectedStyle.value,
     });
-    console.log(selectedSize.value, inputText.value);
+    console.log(selectedStyle.value);
     console.log(res.data);
     displayImage.value = res.data.data;
   } catch (error) {
     console.log(error);
+    showImageError.value = ' Unable to generate the image. Please check your input parameters and try again.'
   } finally {
     loading.value = false;
   }
@@ -113,11 +150,10 @@ onMounted(() => {
 });
 </script>
 <style>
-  .border-item {
-    border: 2px solid transparent;
-    
-  }
-  .active-border{
-    border: 2px solid rgb(3, 127, 3);
-  }
+.border-item {
+  border: 2px solid transparent;
+}
+.active-border {
+  border: 2px solid rgb(3, 127, 3);
+}
 </style>
