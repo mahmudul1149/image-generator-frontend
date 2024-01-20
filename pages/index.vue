@@ -6,8 +6,8 @@
       <p class="text-white text-base mt-4">Transform text into captivating visuals instantly using our custom AI Image Generator. Input a detailed description, and witness your ideas come to life in stunning and dynamic images. 
 </p>
 <div class="flex items-center gap-3 mt-6">
-  <input class=" text-base w-full py-2 px-2 rounded-lg" type="text" placeholder="Describe what you want to see" name="" id="" >
-<button class="bg-[#C209C1] rounded-lg py-2 px-6 font-medium text-base text-white">Generate</button>
+  <input class=" text-base w-full py-2 px-2 rounded-lg" type="text" placeholder="Describe what you want to see" name="" id="" v-model="inputText">
+<button class="bg-[#C209C1] rounded-lg py-2 px-6 font-medium text-base text-white" @click="goToAppPage">Generate</button>
 </div>
 <button class=" border border-[#C209C1] text-sm bg-transparent text-[#C209C1] rounded-[20px] py-1.5 px-6 font-bold mt-6">Prompt sample</button>
     </div>
@@ -76,9 +76,13 @@
     </div>
 </template>
 
-<script>
-export default {
-
+<script setup>
+import { useMainStore } from '../store/index';
+const store = useMainStore();
+const inputText = ref('');
+function goToAppPage() {
+  store.setInputText(inputText);
+  navigateTo('/app')
 }
 </script>
 
