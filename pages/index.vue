@@ -13,7 +13,7 @@
 <button v-if="store.user" class="bg-[#C209C1] rounded-lg py-2 px-6 font-medium text-base text-white" @click="goToAppPage">Generate</button>
 <button  v-else class="bg-[#C209C1] rounded-lg py-2 px-6 font-medium text-base text-white" @click="store.signinWithGoogle">Generate</button>
 </div>
-<button class=" border border-[#C209C1] text-sm bg-transparent text-[#C209C1] rounded-[20px] py-1.5 px-6 font-bold mt-6">Prompt sample</button>
+<button class=" border border-[#C209C1] text-sm bg-transparent text-[#C209C1] rounded-[20px] py-1.5 px-6 font-bold mt-6" @click="addPromptStyle">Prompt sample</button>
     </div>
     <div>
       <img src="../static/hero-image.png" alt="">
@@ -85,9 +85,26 @@
 import { useMainStore } from '../store/index';
 const store = useMainStore();
 const inputText = ref('');
+const promptIndex = ref(0);
+ const prompts = reactive([
+  "Serene sunset over a mountain lake",
+  "Futuristic cityscape with flying cars",
+  "Cozy cabin in the snowy woods",
+  "Abstract representation of joy and celebration",
+  "Steampunk-inspired underwater world",
+  "Bustling marketplace in a medieval fantasy town",
+  "Alien landscape with strange plants and creatures",
+  "Retro-style diner with neon lights",
+  "Dreamy seascape with a lighthouse in the distance",
+  "Vibrant tropical paradise with exotic birds",
+]);
 function goToAppPage() {
   store.setInputText(inputText);
   navigateTo('/app')
+}
+function addPromptStyle() {
+  promptIndex.value = (promptIndex.value + 1) % prompts.length;
+  inputText.value = prompts[promptIndex.value]
 }
 </script>
 
