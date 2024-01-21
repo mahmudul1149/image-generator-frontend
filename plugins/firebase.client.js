@@ -4,13 +4,13 @@ import { useMainStore } from "../store/index";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const firebaseConfig = {
-    apiKey: "AIzaSyB2fnHm7ah5CE9nej-Ufw4TPQH3dr4OzCA",
-    authDomain: "take-home-todos.firebaseapp.com",
-    projectId: "take-home-todos",
-    storageBucket: "take-home-todos.appspot.com",
-    messagingSenderId: "567571876116",
-    appId: "1:567571876116:web:d7daefafbe4b642a96da01",
-    measurementId: "G-E6RZ6G58BE",
+    apiKey: "AIzaSyAJe3QVsrYyWQEEiS7RxuhzFpwIAp3hGlU",
+    authDomain: "image-generate-7e5ed.firebaseapp.com",
+    projectId: "image-generate-7e5ed",
+    storageBucket: "image-generate-7e5ed.appspot.com",
+    messagingSenderId: "739487862995",
+    appId: "1:739487862995:web:4209163b07b482ee4c8426",
+    measurementId: "G-7TZ62QVKSH"
   };
   const { $axios } = useNuxtApp();
   const app = initializeApp(firebaseConfig);
