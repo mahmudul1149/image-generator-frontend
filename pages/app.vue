@@ -101,7 +101,7 @@
           alt=""
         />
       </div>
-      <div class="mt-10 relative group">
+      <div class="mt-10 relative group" v-if="displayImage">
     <img class="rounded-lg main-image" :src="displayImage" alt="" />
     <div class="hidden absolute inset-0 bg-black opacity-50 transition duration-300 group-hover:block rounded-lg"></div>
 <div>
