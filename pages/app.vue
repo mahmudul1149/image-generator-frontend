@@ -101,9 +101,16 @@
           alt=""
         />
       </div>
-      <div class="mt-10">
-        <img class="rounded-lg" :src="displayImage" alt="" />
-      </div>
+      <div class="mt-10 relative group">
+    <img class="rounded-lg main-image" :src="displayImage" alt="" />
+    <div class="hidden absolute inset-0 bg-black opacity-50 transition duration-300 group-hover:block rounded-lg"></div>
+<div>
+  <button @click="downloadImage">
+    <svg  class="hidden cursor-pointer absolute top-4 right-4 small-image" width="25px" height="25px" fill="#fff" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M117.173 78.583h-12.167a1.75 1.75 0 0 0-1.75 1.75v31.98H24.744v-31.98a1.75 1.75 0 0 0-1.75-1.75H10.827a1.75 1.75 0 0 0-1.75 1.75v45.9a1.75 1.75 0 0 0 1.75 1.75h106.346a1.75 1.75 0 0 0 1.75-1.75v-45.9a1.75 1.75 0 0 0-1.75-1.75zm-1.75 45.9H12.577v-42.4h8.667v31.98a1.75 1.75 0 0 0 1.75 1.75h82.013a1.75 1.75 0 0 0 1.75-1.75v-31.98h8.667z"/><path d="M62.763 90.018a1.771 1.771 0 0 0 2.475 0L97.764 57.49a1.771 1.771 0 0 0 0-2.475l-8.6-8.6a1.749 1.749 0 0 0-2.475 0L71.833 61.266V1.73a1.75 1.75 0 0 0-1.75-1.75H57.917a1.75 1.75 0 0 0-1.75 1.75v59.536L41.313 46.413a1.749 1.749 0 0 0-2.475 0l-8.6 8.6a1.771 1.771 0 0 0 0 2.475zM40.076 50.125l16.6 16.6a1.75 1.75 0 0 0 2.987-1.237V3.48h8.667v62.01a1.75 1.75 0 0 0 2.987 1.237l16.6-16.6 6.128 6.128L64 86.306 33.948 56.253z"/></svg>
+
+  </button>
+</div>
+</div>
     </div>
   </div>
 </template>
@@ -143,6 +150,21 @@ async function generateImage() {
     loading.value = false;
   }
 }
+async function downloadImage() {
+  try {
+    if (displayImage.value) {
+      const link = document.createElement('a');
+      link.href = displayImage.value;
+      link.download = 'generated_image.png';
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      console.error('No image available for download.');
+    }
+  } catch (error) {
+    console.error('Error downloading image:', error);
+  }
+}
 onMounted(() => {
   if (store.input) {
     inputText.value = store.input;
@@ -157,4 +179,8 @@ onMounted(() => {
 .active-border {
   border: 2px solid rgb(3, 127, 3);
 }
+.group:hover .small-image {
+    display: block;
+}
+
 </style>
