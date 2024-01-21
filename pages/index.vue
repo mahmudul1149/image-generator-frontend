@@ -1,4 +1,7 @@
 <template>
+  <div>
+
+
  <div class="bg-[#0F0E0A]  ">
   <div class=" max-w-5xl mx-auto grid grid-cols-2 gap-8 py-12">
     <div>
@@ -7,7 +10,8 @@
 </p>
 <div class="flex items-center gap-3 mt-6">
   <input class=" text-base w-full py-2 px-2 rounded-lg" type="text" placeholder="Describe what you want to see" name="" id="" v-model="inputText">
-<button class="bg-[#C209C1] rounded-lg py-2 px-6 font-medium text-base text-white" @click="goToAppPage">Generate</button>
+<button v-if="store.user" class="bg-[#C209C1] rounded-lg py-2 px-6 font-medium text-base text-white" @click="goToAppPage">Generate</button>
+<button  v-else class="bg-[#C209C1] rounded-lg py-2 px-6 font-medium text-base text-white" @click="store.signinWithGoogle">Generate</button>
 </div>
 <button class=" border border-[#C209C1] text-sm bg-transparent text-[#C209C1] rounded-[20px] py-1.5 px-6 font-bold mt-6">Prompt sample</button>
     </div>
@@ -74,6 +78,7 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
