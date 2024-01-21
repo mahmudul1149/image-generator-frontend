@@ -13,6 +13,7 @@
           />
           <button
             @click="generateImage"
+            :disabled="inputText === ''"
             class="flex items-center gap-2 rounded-lg py-2 px-6 font-medium text-base text-white"
             style="background: linear-gradient(to right, #7a4ced, #9266f0)"
           >
