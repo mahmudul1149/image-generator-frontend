@@ -58,7 +58,17 @@
       <div class="mt-1">
         <h1 class="text-gray-300 leading-7 mb-1 text-lg">Choose a size</h1>
         <div class="grid grid-cols-3 max-w-[250px] gap-4">
-          <button class="flex flex-col" @click="selectSize('small')">
+          <button class="flex flex-col" @click="selectSize('large')">
+            <div
+              :class="{ 'active-border': selectedSize === 'large' }"
+              class="p-4 border-item flex bg-slate-600 justify-center items-center rounded-lg cursor-pointer flex-grow"
+            >
+              <div
+                class="w-[50px] h-[40px] border-2 border-white rounded-lg"
+              ></div>
+            </div>
+          </button>
+          <button class="flex flex-col ml-1" @click="selectSize('small')">
             <div
               :class="{ 'active-border': selectedSize === 'small' }"
               class="p-4 bg-slate-600 border-item flex justify-center items-center rounded-lg cursor-pointer flex-grow"
@@ -78,16 +88,7 @@
               ></div>
             </div>
           </button>
-          <button class="flex flex-col" @click="selectSize('large')">
-            <div
-              :class="{ 'active-border': selectedSize === 'large' }"
-              class="p-4 border-item flex bg-slate-600 justify-center items-center rounded-lg cursor-pointer flex-grow"
-            >
-              <div
-                class="w-[50px] h-[40px] border-2 border-white rounded-lg"
-              ></div>
-            </div>
-          </button>
+         
         </div>
       </div>
       <div v-if="showImageError" class="flex items-center justify-center mt-6">
@@ -114,7 +115,7 @@ const store = useMainStore();
 const inputText = ref("");
 const displayImage = ref(null);
 const loading = ref(false);
-const selectedSize = ref("small");
+const selectedSize = ref("large");
 const selectedStyle = ref("vivid");
 const showImageError = ref('')
 function selectSize(size) {
