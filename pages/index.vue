@@ -3,9 +3,9 @@
 
 
  <div class="bg-[#0F0E0A]  ">
-  <div class=" max-w-5xl mx-auto grid grid-cols-2 gap-8 py-12">
+  <div class=" max-w-5xl w-[90%] mx-auto grid grid-cols-2 sm:grid-cols-1 gap-8 py-12">
     <div>
-      <h1 class="text-white  text-5xl leading-[60px] font-bold mr-4">Free AI Image Generator: Turn text to images in seconds</h1>
+      <h1 class="text-white  text-5xl sm:text-4xl leading-[60px] font-bold mr-4">Free AI Image Generator: Turn text to images in seconds</h1>
       <p class="text-white text-base mt-4">Transform text into captivating visuals instantly using our custom AI Image Generator. Input a detailed description, and witness your ideas come to life in stunning and dynamic images. 
 </p>
 <div class="flex items-center gap-3 mt-6">
@@ -47,9 +47,9 @@
       </div>
     </div>
 
- <div class="bg-white py-24">
+ <div class="bg-white py-24 sm:pt-6">
       <div class="w-[90%] max-w-5xl mx-auto">
-        <div class="flex items-center mb-16 gap-16 sm:gap-8 sm:flex-col-reverse">
+        <div class="flex items-center mb-16 gap-16 sm:gap-8   sm:flex-col-reverse">
           <div class="w-1/2 sm:w-full">
             <h3 class="text-3xl text-[#343434] font-semibold leading-normal mb-4 sm:text-xl sm:font-bold">
             Introducing  AI Image Generator apps
@@ -62,7 +62,7 @@
             <img  class="h-[300px] w-full rounded-xl" src="../static/feature.png" alt="">
           </div>
         </div>
-        <div class="flex items-center  gap-16 sm:gap-8 sm:flex-col-reverse">
+        <div class="flex items-center  gap-16 sm:gap-8 sm:flex-col">
         
           <div class="w-1/2  sm:w-full bg-white py-6 rounded-xl">
             <img class="h-[300px] w-full rounded-xl" src="../static/feature2.png" alt="">
