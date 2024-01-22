@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#2A3742] h-[calc(100vh-72px)] overflow-auto">
-    <div class="max-w-4xl mx-auto py-10">
+    <div class="max-w-4xl w-[95%] mx-auto py-10">
       <div>
         <div class="flex gap-4">
           <input
@@ -14,7 +14,7 @@
           <button
             @click="generateImage"
             :disabled="inputText === ''"
-            class="flex items-center gap-2 rounded-lg py-2 px-6 font-medium text-base text-white"
+            class="flex items-center gap-2 rounded-lg py-2 px-6 sm:px-4 font-medium text-base text-white"
             style="background: linear-gradient(to right, #7a4ced, #9266f0)"
           >
             <svg fill="white" width="24" height="24">
