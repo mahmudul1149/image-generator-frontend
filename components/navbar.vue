@@ -1,8 +1,8 @@
 <template>
     <div class="px-7 py-[.9rem] sm:px-5 bg-[#0F0E0A] border-b border-gray-800">
-      <div class="max-w-6xl m-auto flex justify-between align-middle items-center">
+      <div class="max-w-6xl m-auto flex justify-between sm:flex-col sm:gap-1 align-middle items-center">
         <div>
-          <nuxt-link to="/" class="logo text-center items-center justify-center leading-3 flex   font-bold text-lg">
+          <nuxt-link to="/" class="logo text-center items-center justify-center leading-3 flex   font-bold text-4xl sm:text-lg">
             <h1>Image Generator</h1>
           </nuxt-link>
         </div>
@@ -27,7 +27,7 @@
                 <button class="border border-[#c6abc6] text-white py-2 px-4 rounded-lg" @click="store.signinWithGoogle">Sign in</button>
               </li>
               <li v-else>
-                   <img @click.stop="showPopupProfile = !showPopupProfile" class="w-10 h-10 rounded-full border-2 border-[#C209C1] cursor-pointer" :src="store.user.photoURL" alt="">
+                   <img @click.stop="showPopupProfile = !showPopupProfile" class="w-10 h-10 sm:w-10 sm:h-10 rounded-full border-2 border-[#C209C1] cursor-pointer" :src="store.user.photoURL" alt="">
               </li>
             
           </ul>
@@ -56,7 +56,6 @@
 
 .logo {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 35px;
   font-weight: bold;
   color: #121212;
   text-align: center;
